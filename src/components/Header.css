@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald:600');
+.navbar-light .navbar-brand {
+  margin-right: calc(20% - 19px);
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  letter-spacing: -0.6px;
+  color: orangered !important;
+}
+
+#search {
+  width: 100%;
+  position: relative;
+}
+
+#search .search-icon {
+  left: 8px;
+  position: absolute;
+}
+
+#search input {
+  width: 100%;
+  max-width: calc(70% - 80px);
+  padding-left: 26px;
+  height: 32px;
+  line-height: 32px;
+  color: #797979;
+  border: 1px solid #D5D5D5;
+  background: #fff;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 14px;
+}
