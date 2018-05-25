@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 // import logo from './logo.svg';
 import Header from '../components/Header';
+import NewsItems from '../components/NewsItems';
 import './App.css';
 // CSS
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -8,12 +9,14 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 class App extends Component {
   render() {
     return (
+      <Fragment>
       <div>
         <Header />
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <div className="container">
+            <NewsItems/>
+        </div>
       </div>
+      </Fragment>
     );
   }
 }
