@@ -2,56 +2,37 @@ import React, { Component } from "react";
 import "./NewsItems.css";
 import ArticlePreview from '../components/ArticlePreview';
 
-
-const NewsItem = (props) => {
-
-  let date = props.time;
-  let cdate = (new Date(date)).toString();
-
-  return(
-      <div className="list">
-        <article className="d-flex">
-          <a href="">
-            <span className="rate-up"><i className="mr-1 fa fa-caret-up">&nbsp;</i>{props.count}</span>
-            <span className="comments"><i className="mr-1 fa fa-comment">&nbsp;</i>{props.comments}</span>
-          </a>
-          <div>
-            <h2>
-              <a href={props.url} target="_blank">
-                {props.title} <em>&nbsp;</em>
-              </a>
-            </h2>
-            <summary>
-              <time>{cdate}</time> by&nbsp;
-              <a href="">{props.author}</a>
-            </summary>
-          </div>
-        </article>
-      </div>
-  )
-}
-
 class Lists extends Component {
 
   constructor(props) {
    super(props);
    this.handleMouseEnter = this.handleMouseEnter.bind(this);
+   this.timer;
 
    this.state = {
      stories:[],
    }
   }
 
+  formattDate(d){
+    let date = d;
+    let cdate = (new Date(date)).toString();
+    return cdate;
+  }
+
   handleMouseEnter(s,e){
     let currentTargetRect = e.currentTarget.getBoundingClientRect();
+    e.persist();
 
-    s.hover = true;
-    s.x = e.pageX - currentTargetRect.left;
-    s.y = e.pageY - currentTargetRect.top;
-    this.setState(s);
+    this.timer = setTimeout(function(){
+      s.hover = true;
+      s.x = e.pageX - currentTargetRect.left;
+      s.y = e.pageY - currentTargetRect.top + 24;
+      this.setState(s); }.bind(this), 1000);
   }
 
   handleMouseExit(s){
+    clearTimeout(this.timer);
     s.hover = false;
     this.setState(s);
   }
@@ -78,14 +59,32 @@ class Lists extends Component {
     if(stories &&  (stories.length>0)){
       views=stories.map(s=>(
         <div className="col-12 col-lg-6" key={s.id}
-         onMouseEnter={this.handleMouseEnter.bind(this, s)} onMouseLeave={this.handleMouseExit.bind(this, s)}>
+         onMouseLeave={this.handleMouseExit.bind(this, s)}>
 
          {
            s.hover &&
            <ArticlePreview s={s}/>
          }
 
-          <NewsItem count={s.score} url={s.url} comments={s.descendants} time={s.time} title={s.title} author={s.by} />
+          <div className="list">
+            <article className="d-flex">
+              <a href="">
+                <span className="rate-up"><i className="mr-1 fa fa-caret-up">&nbsp;</i>{s.score}</span>
+                <span className="comments"><i className="mr-1 fa fa-comment">&nbsp;</i>{s.descendants}</span>
+              </a>
+              <div>
+                <h2>
+                  <a href={s.url} target="_blank" onMouseEnter={this.handleMouseEnter.bind(this, s)}>
+                    {s.title} <em>&nbsp;</em>
+                  </a>
+                </h2>
+                <summary>
+                  <time>{this.formattDate(s.time)}</time> by&nbsp;
+                  <a href="">{s.author}</a>
+                </summary>
+              </div>
+            </article>
+          </div>
         </div>
       ));
     }
