@@ -21,7 +21,7 @@ class Preview extends Component {
 	componentDidMount() {
 	  this.setState({
 	    styles: {
-	      top: this.state.s.y,
+	      top: 24,
 	      left: this.state.s.x
 	    }
 	  })

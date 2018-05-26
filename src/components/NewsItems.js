@@ -27,7 +27,6 @@ class Lists extends Component {
     this.timer = setTimeout(function(){
       s.hover = true;
       s.x = e.pageX - currentTargetRect.left;
-      s.y = e.pageY - currentTargetRect.top + 24;
       this.setState(s); }.bind(this), 1000);
   }
 
