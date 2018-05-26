@@ -3,7 +3,7 @@ a:hover, a:focus {
 }
 
 div.list {
-  width: 1000px;
+  /*width: 1000px;*/
 }
 div.list article {
   display: -webkit-box;

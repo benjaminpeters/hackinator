@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import "./NewsItems.css";
 
 const NewsItem = (props) => {
+
+  let date = props.time;
+  let cdate = (new Date(date)).toString();
   return(
       <div className="list">
         <article className="d-flex">
@@ -16,7 +19,7 @@ const NewsItem = (props) => {
               </a>
             </h2>
             <summary>
-              <time>{props.time} hours ago</time> by&nbsp;
+              <time>{cdate}</time> by&nbsp;
               <a href="">{props.author}</a>
             </summary>
           </div>
@@ -50,10 +53,11 @@ class Lists extends Component {
   render() {
     let views = <div>Loading...</div>;
     const {stories}=this.state;
+    console.log({stories});
     if(stories &&  (stories.length>0)){
       views=stories.map(s=>(
         <div className="col-12 col-lg-6" key={s.id}>
-          <NewsItem count={s.score} url={s.url} comments={s.descendants} time={s.time} title={s.title} author={"coloneltcb"} />
+          <NewsItem count={s.score} url={s.url} comments={s.descendants} time={s.time} title={s.title} author={s.by} />
         </div>
       ));
     }

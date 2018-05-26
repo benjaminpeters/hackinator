@@ -13,7 +13,9 @@ class App extends Component {
       <div>
         <Header />
         <div className="container">
-            <NewsItems/>
+          <div className="row">
+              <NewsItems/>
+          </div>
         </div>
       </div>
       </Fragment>
