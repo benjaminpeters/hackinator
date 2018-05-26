@@ -1,0 +1,7 @@
+#preview-container{
+  background: red;
+  height: 100px;
+  width: 300px;
+  position: absolute;
+  z-index: 100;
+}

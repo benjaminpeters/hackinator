@@ -14,7 +14,7 @@ class App extends Component {
         <Header />
         <div className="container">
           <div className="row">
-              <NewsItems/>
+              <NewsItems />
           </div>
         </div>
       </div>
