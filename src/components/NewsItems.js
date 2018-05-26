@@ -42,8 +42,12 @@ class Lists extends Component {
    }
   }
 
-  handleMouseEnter(s){
+  handleMouseEnter(s,e){
+    let currentTargetRect = e.currentTarget.getBoundingClientRect();
+
     s.hover = true;
+    s.x = e.pageX - currentTargetRect.left;
+    s.y = e.pageY - currentTargetRect.top;
     this.setState(s);
   }
 
