@@ -14,7 +14,7 @@ const NewsItem = (props) => {
           </a>
           <div>
             <h2>
-              <a href={props.url}>
+              <a href={props.url} target="_blank">
                 {props.title} <em>&nbsp;</em>
               </a>
             </h2>
