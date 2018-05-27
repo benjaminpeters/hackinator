@@ -87,7 +87,7 @@ class Lists extends Component {
                 </h2>
                 <summary>
                   <time>{this.formattDate(s.time)}</time> by&nbsp;
-                  <a href="">{s.author}</a>
+                  <a href="">{s.by}</a>
                 </summary>
               </div>
             </article>
