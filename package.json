@@ -6,7 +6,12 @@
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-scripts": "1.1.4",
-    "bootstrap": "^4.1.1"
+    "bootstrap": "^4.1.1",
+    "cheerio": "^0.22.0",
+    "html-to-text": "^3.2.0",
+    "lodash": "^4.17.4",
+    "request": "^2.81.0",
+    "sbd": "^1.0.12"
   },
   "scripts": {
     "start": "react-scripts start",

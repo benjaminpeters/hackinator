@@ -51,7 +51,7 @@ class Lists extends Component {
 
    fetch(topStories)
    .then(data=>data.json())
-   .then(data=>data.slice(0, 10).map(id=>{
+   .then(data=>data.slice(0, 30).map(id=>{
      const url=`${storyUrlBase}${id}.json`;
      return fetch(url).then(d=>d.json()); //return array
    }))
