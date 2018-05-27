@@ -7,7 +7,7 @@ class Lists extends Component {
   constructor(props) {
    super(props);
    this.handleMouseEnter = this.handleMouseEnter.bind(this);
-   this.timer;
+   this.timer = null;
 
    this.state = {
      stories:[],
@@ -25,6 +25,14 @@ class Lists extends Component {
     e.persist();
 
     this.timer = setTimeout(function(){
+      let midpoint = window.innerHeight/2;
+
+      if (midpoint < e.pageY){
+        s.y = -242;
+      }
+      else {
+        s.y = 24;
+      }
       s.hover = true;
       s.x = e.pageX - currentTargetRect.left;
       this.setState(s); }.bind(this), 1000);
