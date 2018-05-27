@@ -27,7 +27,7 @@ class Lists extends Component {
     this.timer = setTimeout(function(){
       let midpoint = window.innerHeight/2;
 
-      if (midpoint < e.pageY){
+      if (midpoint < e.screenY){
         s.y = -242;
       }
       else {
