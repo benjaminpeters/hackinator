@@ -1,8 +1,15 @@
 #preview-container{
-  background: white;
+  background-color: #f6f6ef;
   height: 242px;
   width: 450px;
   position: absolute;
   z-index: 100;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  overflow-y: scroll;
+}
+
+.summarybox{
+  font-family:Verdana, Geneva, sans-serif;
+  font-size: 10pt;
+  color:#828282;
 }
